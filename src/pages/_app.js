@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { store } from '../store/store'; // Make sure this is correct
 import '../styles/globals.css';
 import Head from 'next/head'; // Import Head from next/head
+import { Toaster } from "react-hot-toast";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -16,6 +17,7 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
       <Provider store={store}>
+        <Toaster position="top-right" reverseOrder={false} />
         <Component {...pageProps} />
       </Provider>
     </>

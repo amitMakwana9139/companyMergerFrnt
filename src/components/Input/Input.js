@@ -11,12 +11,14 @@ export default function Input({
     autoComplete,
     placeholder,
     className = '',
+    error = false,
+    min
 }) {
     return (
         <div className="w-full">
             {label && (
                 <label htmlFor={id} className="block text-sm font-medium text-slate-600 mb-1">
-                    {label}
+                    {label} {required && <span className="text-red-500">*</span>}
                 </label>
             )}
             <div className="relative mt-1 border border-slate-500 rounded-xl">
@@ -34,7 +36,7 @@ export default function Input({
                     value={value}
                     onChange={onChange}
                     placeholder={placeholder}
-                    className={`w-full pl-10 pr-4 py-2 rounded-lg border border-white/20 bg-white/5 text-white placeholder-gray-400  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-150 sm:text-sm ${className}`}
+                    className={`w-full pl-10 pr-4 py-2 rounded-lg border ${error ? 'border-red-500 focus:ring-red-500' : 'border-white/20 focus:ring-blue-500'} bg-white/5  placeholder-gray-400  focus:outline-none focus:ring-2  focus:border-transparent transition duration-150 sm:text-sm ${className}`}
                 />
             </div>
         </div>
